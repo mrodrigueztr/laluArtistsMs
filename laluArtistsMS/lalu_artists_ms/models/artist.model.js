@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const artistSchema = new Schema({
+    artist_username : {
+        type: String , 
+        required : true 
+    },
     artist_name : {
         type: String , 
         required : true 
