@@ -24,7 +24,7 @@ router.get('/artistName/:artist_name/albums', async(req,res) => {
         const artist = await Artist.findOne({
             artist_name: req.params.artist_name,
         });
-        return res.json({msage : `Albumes del artista encontrados`,data : artist.artist_albums} );
+        return res.json({msage : `Albumes del artista encontrados`,data : artist} );
     } catch (error) {
         return res.status(500).json({error : 'Ha ocurrido un error'});
     }
@@ -35,7 +35,7 @@ router.get('/artistName/:artist_name/songs', async(req,res) => {
         const artist = await Artist.findOne({
             artist_name: req.params.artist_name,
         });
-        return res.json({msage : `Canciones del artista encontrados`,data : artist.artist_songs} );
+        return res.json({msage : `Canciones del artista encontrados`,data : artist} );
     } catch (error) {
         return res.status(500).json({error : 'Ha ocurrido un error'});
     }
@@ -46,7 +46,7 @@ router.get('/artistName/:artist_name/information', async(req,res) => {
         const artist = await Artist.findOne({
             artist_name: req.params.artist_name,
         });
-        return res.json({msage : `Informacion del artista encontrados`,data : artist.artist_contact_information} );
+        return res.json({msage : `Informacion del artista encontrados`,data : artist} );
     } catch (error) {
         return res.status(500).json({error : 'Ha ocurrido un error'});
     }
@@ -64,7 +64,7 @@ router.get('/:artist_id', async(req,res) => {
 router.get('/:artist_id/albums', async(req,res) => {
     try {
         const artist = await Artist.findById(req.params.artist_id);
-        return res.json({msage : `Albumes del artista ${artist.artist_name} encontrados`,data : artist.artist_albums});
+        return res.json({msage : `Albumes del artista ${artist.artist_name} encontrados`,data : artist});
     } catch (error) {
         return res.status(500).json({error : 'Ha ocurrido un error'});
     }
@@ -74,7 +74,7 @@ router.get('/:artist_id/songs', async(req,res) => {
     try {
         
         const artist = await Artist.findById(req.params.artist_id);
-        return res.json({msage : `Canciones del artista ${artist.artist_name} encontradas`,data : artist.artist_songs});
+        return res.json({msage : `Canciones del artista ${artist.artist_name} encontradas`,data : artist});
     } catch (error) {
         console.log(error);
         return res.status(500).json({error : 'Ha ocurrido un error'});
@@ -85,7 +85,7 @@ router.get('/:artist_id/information', async(req,res) => {
     try {
         
         const artist = await Artist.findById(req.params.artist_id);
-        return res.json({msage : `Informacion adicional del artista ${artist.artist_name} encontrados`,data : artist.artist_contact_information});
+        return res.json({msage : `Informacion adicional del artista ${artist.artist_name} encontrados`,data : artist});
     } catch (error) {
         console.log(error);
         return res.status(500).json({error : 'Ha ocurrido un error'});
