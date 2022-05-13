@@ -1,7 +1,7 @@
 const connectDB = require("../db/lalu_artist_db");
 const app = require("../laluArtist");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 
 const start = async () => {
   try {
