@@ -99,6 +99,7 @@ getArtistInformationByArtistId = async (req, res) => {
 };
 
 createArtist = async (req, res) => {
+    req.body.artist_followers = 0
     req.body.artist_albums = []
     req.body.artist_songs = []
     req.body.artist_contact_information = []
